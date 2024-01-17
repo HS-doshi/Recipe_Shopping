@@ -1,7 +1,11 @@
 <div class="work">
     <div class="col-xs-10">
-        <p>The List</p>
         <app-shopping-edit></app-shopping-edit>
         <hr />
+        <ul class="list-group">
+            <a href="#" class="list-group-item" style="cursor: pointer;" *ngFor="let Ingrediants of ingrediant">
+                {{Ingrediants.name}} {{Ingrediants.amount}}
+            </a>
+        </ul>
     </div>
 </div>
