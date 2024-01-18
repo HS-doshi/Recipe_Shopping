@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { last } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,22 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  serverElements = [{ type: 'server', name: 'TestServer', content: 'Just a Test!' }]
 
+  oddNumbers: number[] = [];
+  evenNumbers: number[] = [];
+
+  onStop(stopNumber: number) {
+    if (stopNumber % 2 === 0) {
+      this.evenNumbers.push(stopNumber)
+      // console.log('Even', this.evenNumbers)
+    }
+    else {
+      this.oddNumbers.push(stopNumber)
+      // console.log('Odd', this.oddNumbers)
+    }
+  }
+
+  serverElements = [{ type: 'server', name: 'TestServer', content: 'Just a Test!' }];
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
       type: 'server',

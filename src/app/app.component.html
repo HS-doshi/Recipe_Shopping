@@ -1,6 +1,11 @@
 <div class="container">
     <div class="col-xs-12">
         <h2>This is Game Assignment!</h2>
+        <app-game-control (stop)="onStop($event)"></app-game-control>
+    </div>
+    <div class="col-xs-12">
+        <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
+        <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
     </div>
 </div>
 <!-- <div class="contaier">
