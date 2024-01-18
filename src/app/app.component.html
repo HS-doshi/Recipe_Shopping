@@ -1,11 +1,40 @@
-<app-header></app-header>
+<div class="container">
+    <div class="col-xs-12">
+        <h2>This is Game Assignment!</h2>
+    </div>
+</div>
+<!-- <div class="contaier">
+    <app-cookpit>
+        (serverCreated)="onAddServer($event)"
+        (bpCreated)="onAddBluePrint($event)"
+    </app-cookpit>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-primary" (click)="onChangeFirst()">Change First Element</button>
+            <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement"
+                [name]="serverElement.name">
+                <p #contentParagraph>
+                    <strong *ngIf="serverElement.type ==='server'">
+                        {{serverElement.content}}</strong>
+                    <en *ngIf="serverElement.type==='blueprint'">
+                        {{serverElement.content}}</en>
+                </p>
+            </app-server-element>
+        </div>
+    </div>
+</div> -->
+<!-- <app-header></app-header>
 <app-cookpit></app-cookpit>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <app-recipes></app-recipes>
             <app-shopping-list></app-shopping-list>
+            <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement">
+
+            </app-server-element>
         </div>
     </div>
 </div>
-<h2>Hello! I'm In App Component!</h2>
+<h2>Hello! I'm In App Component!</h2> -->
