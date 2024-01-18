@@ -1,1 +1,11 @@
-<p>cookpit works!</p>
+<div class="cil-xs-12">
+    <p>Add new Server or BluePrint</p>
+    <label>Server Name</label>
+    <input type="text" class="form-control" #serverNameInput>
+    <label>Server Content</label>
+    <input type="text" class="form-control" #serverContentInput>
+    <br>
+    <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">Add Server</button>
+    <button class="btn btn-primary" (click)="onAddBluePrint(serverNameInput)">Add Server BluePrint</button>
+
+</div>
