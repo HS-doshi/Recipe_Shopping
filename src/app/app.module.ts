@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { GameControlComponent } from './game-control/game-control.component';
 import { EvenComponent } from './even/even.component';
 import { OddComponent } from './odd/odd.component';
+import { BasicHighlightDirective } from './basic-highlight/basic.hightlight.directive';
+import { BeterHightlightDirective } from './beter-hightlight.directive';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { OddComponent } from './odd/odd.component';
     ServerElementComponent,
     GameControlComponent,
     EvenComponent,
-    OddComponent
+    OddComponent,
+    BasicHighlightDirective,
+    BeterHightlightDirective,
   ],
   imports: [
     BrowserModule,

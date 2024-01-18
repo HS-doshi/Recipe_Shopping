@@ -3,8 +3,26 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+            <!-- <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
             <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>
+             -->
+            <button class="btn btn-primary" (click)="onlyOdd=!onlyOdd">Only Show Odd Numbers</button>
+            <br><br>
+            <ul class="list-group">
+                <div *ngIf="onlyOdd">
+                    <li class="list-group-item" [ngClass]="{odd:odd%2!=0}"
+                        [ngStyle]="{backgroundColor:odd%2!==0 ? 'black':'red'}" *ngFor="let odd of oddNum">
+                        {{odd}}</li>
+                </div>
+                <div *ngIf="!onlyOdd">
+                    <li class="list-group-item" [ngClass]="{even:even%2==0}"
+                        [ngStyle]="{backgroundColor:even%2===0 ? 'red':'yellow'}" *ngFor="let even of evenNum">
+                        {{even}}
+                    </li>
+                </div>
+            </ul>
+            <p appHighlight>Style me with basic directive!</p>
+            <p appBeterHightlight>Style me with better hightlight!!</p>
         </div>
     </div>
 </div>
