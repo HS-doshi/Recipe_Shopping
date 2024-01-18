@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { last } from 'rxjs';
+import { Recipe } from './recipes/recipe.model';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,11 @@ import { last } from 'rxjs';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  loadedFeature = 'recipe'
 
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
 

@@ -1,4 +1,16 @@
+<!-- instead of $event - we can direct pass a like 'recipe-list' suitable name which we want. -->
+<app-header (featuredSelected)="onNavigate($event)"></app-header>
 <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <app-recipes *ngIf="loadedFeature === 'recipe'"></app-recipes>
+            <app-shopping-list *ngIf="loadedFeature !== 'recipe'"></app-shopping-list>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="container">
     <div class="col-xs-12">
         <h2>This is Game Assignment!</h2>
         <app-game-control (stop)="onStop($event)"></app-game-control>
@@ -7,7 +19,8 @@
         <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
         <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
     </div>
-</div>
+</div> -->
+
 <!-- <div class="contaier">
     <app-cookpit>
         (serverCreated)="onAddServer($event)"
@@ -29,17 +42,3 @@
         </div>
     </div>
 </div> -->
-<!-- <app-header></app-header>
-<app-cookpit></app-cookpit>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <app-recipes></app-recipes>
-            <app-shopping-list></app-shopping-list>
-            <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement">
-
-            </app-server-element>
-        </div>
-    </div>
-</div>
-<h2>Hello! I'm In App Component!</h2> -->
