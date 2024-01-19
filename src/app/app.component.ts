@@ -12,6 +12,7 @@ export class AppComponent {
   oddNum = [1, 3, 5];
   evenNum = [2, 4, 6, 8];
   onlyOdd = false;
+  value = 20;
 
   loadedFeature = 'recipe'
 
