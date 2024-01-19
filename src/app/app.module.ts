@@ -19,6 +19,11 @@ import { BasicHighlightDirective } from './basic-highlight/basic.hightlight.dire
 import { BeterHightlightDirective } from './beter-hightlight.directive';
 import { UnlessDirective } from './unless.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { AccountComponent } from './account/account.component';
+import { NewAccountComponent } from './new-account/new-account.component';
+import { AcccountService } from './accounts.service';
+import { LogginService } from './logging.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,14 +43,17 @@ import { DropdownDirective } from './shared/dropdown.directive';
     BasicHighlightDirective,
     BeterHightlightDirective,
     UnlessDirective,
-    DropdownDirective
+    DropdownDirective,
+    AccountComponent,
+    NewAccountComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AcccountService, LogginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

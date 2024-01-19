@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from './recipes/recipe.model';
+import { AcccountService } from './accounts.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  accounts: { name: string, status: string }[] = [];
+  constructor(private accountService: AcccountService) {
+
+  }
+  ngOnInit(): void {
+    this.accounts = this.accountService.accounts;
+  }
 
   numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   oddNum = [1, 3, 5];
@@ -32,7 +40,6 @@ export class AppComponent {
       // console.log('Odd', this.oddNumbers)
     }
   }
-
   serverElements = [{ type: 'server', name: 'TestServer', content: 'Just a Test!' }];
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
