@@ -24,6 +24,8 @@ import { NewAccountComponent } from './new-account/new-account.component';
 import { AcccountService } from './accounts.service';
 import { LogginService } from './logging.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ActiveUsersComponent } from './active-users/active-users.component';
+import { InactiveeUsersComponent } from './inactivee-users/inactivee-users.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,10 @@ import { HttpClientModule } from '@angular/common/http';
     UnlessDirective,
     DropdownDirective,
     AccountComponent,
-    NewAccountComponent
+    NewAccountComponent,
+    ActiveUsersComponent,
+    InactiveeUsersComponent,
+
   ],
   imports: [
     BrowserModule,

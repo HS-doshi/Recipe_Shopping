@@ -1,13 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from './recipes/recipe.model';
 import { AcccountService } from './accounts.service';
+import { UserService } from './users.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  providers: [UserService]
 })
 export class AppComponent implements OnInit {
+
+  activeUsers = ['Max', 'Million'];
+  inactiveUsers = ['Heet', 'Jain'];
+
+  onSetToInactive(id: number) {
+    this.inactiveUsers.push(this.activeUsers[id]);
+    this.activeUsers.splice(id, 1);
+  }
+
+  onSetToActive(id: number) {
+    this.activeUsers.push(this.activeUsers[id]);
+    this.inactiveUsers.splice(id, 1);
+  }
+
+
   accounts: { name: string, status: string }[] = [];
   constructor(private accountService: AcccountService) {
 
