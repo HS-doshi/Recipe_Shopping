@@ -26,6 +26,7 @@ import { LogginService } from './logging.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InactiveeUsersComponent } from './inactivee-users/inactivee-users.component';
+import { CounterService } from './counter.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { InactiveeUsersComponent } from './inactivee-users/inactivee-users.compo
     FormsModule,
     HttpClientModule
   ],
-  providers: [AcccountService, LogginService],
+  providers: [AcccountService, LogginService, CounterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
