@@ -12,7 +12,6 @@ export class InactiveeUsersComponent implements OnInit {
 
   constructor(private userService: UserService) { }
 
-
   ngOnInit(): void {
     this.Users = this.userService.inactiveUSers;
   }
