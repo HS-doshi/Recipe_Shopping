@@ -40,7 +40,8 @@ const appRoutes: Routes = [
   // don't add slash ahead of users or servers.
   { path: '', component: HomeComponent },
   { path: 'servers', component: ServersComponent },
-  { path: 'users', component: UsersComponent }
+  { path: 'users', component: UsersComponent },
+  { path: 'users/:id/:name', component: UsersComponent },
 ]
 
 @NgModule({
