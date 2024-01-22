@@ -12,10 +12,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  onLoadServer() {
+  onLoadServer(id: number) {
     // complex calculation...
     // /server - absolute path.
     // without slash relative path.
-    this.router.navigate(['/servers']);
+    this.router.navigate(['/servers', id, 'edit'], {
+      queryParams: { allowEdit: '1' }, fragment: 'loading'
+    });
   }
 }

@@ -8,6 +8,7 @@ import { ShoppingService } from '../shopping.service';
   styleUrl: './shopping-edit.component.css'
 })
 export class ShoppingEditComponent implements OnInit {
+
   @ViewChild('nameInput') nameInputref: ElementRef;
   @ViewChild('amountInput') amountInputRed: ElementRef;
 
