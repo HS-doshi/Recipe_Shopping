@@ -28,6 +28,7 @@ import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InactiveeUsersComponent } from './inactivee-users/inactivee-users.component';
 import { CounterService } from './counter.service';
 import { RecipeService } from './recipes/recipes.service';
+import { ShoppingService } from './shopping-list/shopping.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { RecipeService } from './recipes/recipes.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AcccountService, LogginService, CounterService, RecipeService],
+  providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

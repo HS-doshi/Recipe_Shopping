@@ -20,4 +20,14 @@ export class ShoppingService {
         this.ingrediant.push(ingrediants);
         this.ingrediantChnaged.emit(this.ingrediant.slice());
     }
+
+    addIngrediants(ingrediants: Ingrediant[]) {
+        // for (let ingrediant of ingredian) {
+        //     this.addIngrediant(ingrediant);
+        // }
+        // ES6 Feature!  - below feature handle multiple objects.
+        this.ingrediant.push(...ingrediants);
+        this.ingrediantChnaged.emit(this.ingrediant.slice());
+    }
+
 }

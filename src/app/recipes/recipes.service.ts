@@ -1,7 +1,10 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { Recipe } from "./recipe.model";
 import { Ingrediant } from "../shared/ingrediant.model";
+import { ShoppingService } from "../shopping-list/shopping.service";
 
+
+// we need to access shopping list service for that we need to import inject.
 @Injectable()
 export class RecipeService {
 
@@ -14,17 +17,23 @@ export class RecipeService {
                 new Ingrediant('Chocolate Slab', 2),
                 new Ingrediant('Weap cream', 3),
             ]),
-        new Recipe('Test Recipe 2 ', 'Ice Cream Recipe', 'https://images.unsplash.com/photo-1529688499411-262f191fe29e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8e2ljZWNyZWFtfXx8fHx8fDE3MDU5MDI5MTc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920',
+        new Recipe('Test Recipe 2 ', 'Ice Cream Recipe', 'https://images.unsplash.com/photo-1516043827470-d52c543c438f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8e2ljZS1jcmVhbX18fHx8fHwxNzA1OTAzNDIx&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920',
             [
                 new Ingrediant('Custor Powder', 2),
                 new Ingrediant('Weap Cream', 3),
                 new Ingrediant('Chocolate Slicy', 5),
             ])
     ];
+    constructor(private slService: ShoppingService) {
+
+    }
     getRecipes() {
         //slice will return new array with a copy of this service file.
         // we only get a copy & can't access outside. 
         return this.recipe.slice();
+    }
+    addIngrediantToShopping(ingrediants: Ingrediant[]) {
+        this.slService.addIngrediants(ingrediants);
     }
 
 }
