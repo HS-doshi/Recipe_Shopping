@@ -29,6 +29,19 @@ import { InactiveeUsersComponent } from './inactivee-users/inactivee-users.compo
 import { CounterService } from './counter.service';
 import { RecipeService } from './recipes/recipes.service';
 import { ShoppingService } from './shopping-list/shopping.service';
+import { HomeComponent } from './Routing-Concept/home/home.component';
+import { ServersComponent } from './Routing-Concept/servers/servers.component';
+import { UsersComponent } from './Routing-Concept/users/users.component';
+import { EditServerComponent } from './Routing-Concept/servers/edit-server/edit-server.component';
+import { ServerComponent } from './Routing-Concept/servers/server/server.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  // don't add slash ahead of users or servers.
+  { path: '', component: HomeComponent },
+  { path: 'servers', component: ServersComponent },
+  { path: 'users', component: UsersComponent }
+]
 
 @NgModule({
   declarations: [
@@ -53,13 +66,19 @@ import { ShoppingService } from './shopping-list/shopping.service';
     NewAccountComponent,
     ActiveUsersComponent,
     InactiveeUsersComponent,
+    HomeComponent,
+    ServersComponent,
+    UsersComponent,
+    EditServerComponent,
+    ServerComponent,
 
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService],
   bootstrap: [AppComponent]
