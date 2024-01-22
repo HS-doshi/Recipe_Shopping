@@ -8,22 +8,15 @@ import { RecipeService } from '../recipes.service';
   styleUrl: './recipe-list.component.css'
 })
 export class RecipeListComponent implements OnInit {
-
-  @Output() recipeWasSelected = new EventEmitter<Recipe>();
-
   // recipe array we have to pass square bracket!
   recipes: Recipe[];
 
   constructor(private recipeService: RecipeService) {
-
   }
 
   ngOnInit() {
-    this.recipes = this.recipeService.getRecipes()
+    this.recipes = this.recipeService.getRecipes();
   }
 
-  onRecipeSelected(recipe: Recipe) {
-    this.recipeWasSelected.emit(recipe)
-  }
 
 }
