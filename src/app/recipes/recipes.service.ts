@@ -3,7 +3,6 @@ import { Recipe } from "./recipe.model";
 import { Ingrediant } from "../shared/ingrediant.model";
 import { ShoppingService } from "../shopping-list/shopping.service";
 
-
 // we need to access shopping list service for that we need to import inject.
 @Injectable()
 export class RecipeService {
@@ -29,8 +28,12 @@ export class RecipeService {
     }
     getRecipes() {
         //slice will return new array with a copy of this service file.
-        // we only get a copy & can't access outside. 
+        //we only get a copy & can't access outside. 
         return this.recipe.slice();
+    }
+    getRecipe(index: number) {
+        // slice will give us a copy of array.
+        return this.recipe[index];
     }
     addIngrediantToShopping(ingrediants: Ingrediant[]) {
         this.slService.addIngrediants(ingrediants);

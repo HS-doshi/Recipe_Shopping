@@ -11,6 +11,10 @@ import { Recipe } from "./recipes/recipe.model";
 import { RecipesComponent } from "./recipes/recipes.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-edit.component";
+import { RecipeListComponent } from "./recipes/recipe-list/recipe-list.component";
+import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.component";
+import { RecipeItemComponent } from "./recipes/recipe-list/recipe-item/recipe-item.component";
+import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
 
 
 // route is simply array of javascript objects which represent where each object represent a route.
@@ -18,9 +22,22 @@ const appRoutes: Routes = [
     // don't add slash ahead of users or servers.
     // Recipe & Shopping List routing - 24/1 -4:45
     { path: '', redirectTo: '/recipes', pathMatch: 'full' },
-    { path: 'recipes', component: RecipesComponent, },
-    { path: 'shopping-list', component: ShoppingListComponent, },
-    { path: 'shooping-item', component: ShoppingEditComponent, }
+    {
+        path: 'recipes', component: RecipesComponent, children: [
+            {
+                path: '', component: RecipeStartComponent, children: [
+                    { path: ':id', component: RecipeDetailComponent }
+                ]
+                //id is dynamic parameter.
+            },
+            { path: 'recipe-detail', component: RecipeDetailComponent }
+        ]
+    },
+    {
+        path: 'shopping-list', component: ShoppingListComponent, children: [
+            { path: 'shopping-edit-item', component: ShoppingEditComponent }
+        ]
+    },
 ]
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],

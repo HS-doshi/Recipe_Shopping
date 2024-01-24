@@ -38,6 +38,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFComponent } from './Routing-Concept/page-not-f/page-not-f.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ServerResolverService } from './Routing-Concept/servers/server-resolver.service';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +68,7 @@ import { ServerResolverService } from './Routing-Concept/servers/server-resolver
     EditServerComponent,
     ServerComponent,
     PageNotFComponent,
-
+    RecipeStartComponent,
   ],
   imports: [
     BrowserModule,
