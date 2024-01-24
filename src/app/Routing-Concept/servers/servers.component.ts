@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ServerService } from './server.service';
 
 @Component({
   selector: 'app-servers',
@@ -8,13 +9,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ServersComponent implements OnInit {
 
-  servers = ['Heet', 'Vansh', 'Dev', 'Prince', 'Vinit'];
+  servers_array: { name: string, id: number, status: string }[];
 
   constructor(private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private serversss: ServerService) {
+    this.servers_array = this.serversss.getServers()
+  }
 
   ngOnInit(): void {
-
   }
   // below it's known as programmtically routing.
   onLoadUser() {

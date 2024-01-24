@@ -21,6 +21,12 @@ export class ServerService {
       name: 'Dev Server',
       status: 'offline'
     },
+
+    {
+      id: 4,
+      name: 'Develoepr',
+      status: 'online'
+    },
   ];
 
   constructor() { }

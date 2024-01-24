@@ -12,6 +12,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  onLogin() { }
+
+  onLogOut() { }
+
   onLoadServer(id: number) {
     // complex calculation...
     // /server - absolute path.

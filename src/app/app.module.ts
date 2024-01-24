@@ -35,17 +35,8 @@ import { UsersComponent } from './Routing-Concept/users/users.component';
 import { EditServerComponent } from './Routing-Concept/servers/edit-server/edit-server.component';
 import { ServerComponent } from './Routing-Concept/servers/server/server.component';
 import { RouterModule, Routes } from '@angular/router';
-
-const appRoutes: Routes = [
-  // don't add slash ahead of users or servers.
-  { path: '', component: HomeComponent },
-  { path: 'servers', component: ServersComponent },
-  { path: 'servers/:id/edit', component: EditServerComponent },
-  { path: 'servers/:id', component: ServerComponent },
-  { path: 'users', component: UsersComponent },
-  { path: 'users/:id/:name', component: UsersComponent }
-
-]
+import { PageNotFComponent } from './Routing-Concept/page-not-f/page-not-f.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -75,6 +66,7 @@ const appRoutes: Routes = [
     UsersComponent,
     EditServerComponent,
     ServerComponent,
+    PageNotFComponent,
 
   ],
   imports: [
@@ -82,7 +74,7 @@ const appRoutes: Routes = [
     CommonModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService],
   bootstrap: [AppComponent]
