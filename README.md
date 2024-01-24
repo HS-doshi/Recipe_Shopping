@@ -1,6 +1,7 @@
 # Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+This project is based on Angular technology & having all the concepts of Angular. 
 
 ## Development server
 
