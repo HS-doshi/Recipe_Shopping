@@ -37,7 +37,7 @@ import { ServerComponent } from './Routing-Concept/servers/server/server.compone
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFComponent } from './Routing-Concept/page-not-f/page-not-f.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { ServerResolverService } from './Routing-Concept/servers/server-resolver.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +76,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService],
+  providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService, ServerResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
