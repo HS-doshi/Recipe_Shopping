@@ -1,13 +1,12 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import {  Injectable } from "@angular/core";
 import { Recipe } from "./recipe.model";
 import { Ingrediant } from "../shared/ingrediant.model";
 import { ShoppingService } from "../shopping-list/shopping.service";
+import { Subject } from "rxjs";
 
 // we need to access shopping list service for that we need to import inject.
 @Injectable()
 export class RecipeService {
-
-    recipeSelected = new EventEmitter<Recipe>();
 
     private recipe: Recipe[] = [
         new Recipe('Test Recipe 1 ', 'Chocolate Recipe', 'https://images.unsplash.com/photo-1602540738621-e7dfebf0af79?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8e2Nob2NvbGF0ZX18fHx8fHwxNzA1OTAyNzMz&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920',

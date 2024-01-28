@@ -1,10 +1,11 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { Ingrediant } from "../shared/ingrediant.model";
+import { Subject } from "rxjs";
 
 @Injectable()
 export class ShoppingService {
 
-    ingrediantChnaged = new EventEmitter<Ingrediant[]>();
+    ingrediantChnaged = new Subject<Ingrediant[]>();
     // Add Ingrediants.
     private ingrediant: Ingrediant[] = [
         new Ingrediant('Cricket', 11),
@@ -18,7 +19,7 @@ export class ShoppingService {
 
     addIngrediant(ingrediants: Ingrediant) {
         this.ingrediant.push(ingrediants);
-        this.ingrediantChnaged.emit(this.ingrediant.slice());
+        this.ingrediantChnaged.next(this.ingrediant.slice());
     }
 
     addIngrediants(ingrediants: Ingrediant[]) {
@@ -27,7 +28,7 @@ export class ShoppingService {
         // }
         // ES6 Feature!  - below feature handle multiple objects.
         this.ingrediant.push(...ingrediants);
-        this.ingrediantChnaged.emit(this.ingrediant.slice());
+        this.ingrediantChnaged.next(this.ingrediant.slice());
     }
 
 }

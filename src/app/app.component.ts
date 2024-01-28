@@ -11,6 +11,12 @@ import { UserService } from './users.service';
 })
 export class AppComponent implements OnInit {
 
+  loadedFeature = 'recipe';
+  
+  // onNavigate(feature: string) {
+  //   this.loadedFeature = feature;
+  // }
+
   activeUsers = ['Max', 'Million'];
   inactiveUsers = ['Heet', 'Jain'];
 
@@ -39,11 +45,7 @@ export class AppComponent implements OnInit {
   onlyOdd = false;
   value = 20;
 
-  loadedFeature = 'recipe'
 
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
-  }
   oddNumbers: number[] = [];
   evenNumbers: number[] = [];
 
