@@ -29,18 +29,12 @@ import { InactiveeUsersComponent } from './inactivee-users/inactivee-users.compo
 import { CounterService } from './counter.service';
 import { RecipeService } from './recipes/recipes.service';
 import { ShoppingService } from './shopping-list/shopping.service';
-import { HomeComponent } from './Routing-Concept/home/home.component';
-import { ServersComponent } from './Routing-Concept/servers/servers.component';
-import { UsersComponent } from './Routing-Concept/users/users.component';
-import { EditServerComponent } from './Routing-Concept/servers/edit-server/edit-server.component';
-import { ServerComponent } from './Routing-Concept/servers/server/server.component';
 import { RouterModule, Routes } from '@angular/router';
-import { PageNotFComponent } from './Routing-Concept/page-not-f/page-not-f.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ServerResolverService } from './Routing-Concept/servers/server-resolver.service';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { ObservableConceptComponent } from './observable-concept/observable-concept.component';
+import { UserComponent } from './Observable_Concept/user/user.component';
+import { HomeComponent } from './Observable_Concept/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,15 +58,10 @@ import { ObservableConceptComponent } from './observable-concept/observable-conc
     NewAccountComponent,
     ActiveUsersComponent,
     InactiveeUsersComponent,
-    HomeComponent,
-    ServersComponent,
-    UsersComponent,
-    EditServerComponent,
-    ServerComponent,
-    PageNotFComponent,
     RecipeStartComponent,
     RecipeEditComponent,
-    ObservableConceptComponent,
+    UserComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +70,7 @@ import { ObservableConceptComponent } from './observable-concept/observable-conc
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService, ServerResolverService],
+  providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

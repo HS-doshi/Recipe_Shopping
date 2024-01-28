@@ -1,12 +1,5 @@
 import { NgModule } from "@angular/core";
-import { HomeComponent } from "./Routing-Concept/home/home.component";
-import { ServersComponent } from "./Routing-Concept/servers/servers.component";
-import { ServerComponent } from "./Routing-Concept/servers/server/server.component";
-import { EditServerComponent } from "./Routing-Concept/servers/edit-server/edit-server.component";
-import { UsersComponent } from "./Routing-Concept/users/users.component";
-import { PageNotFComponent } from "./Routing-Concept/page-not-f/page-not-f.component";
 import { Router, RouterModule, Routes } from "@angular/router";
-import { ServerResolverService } from "./Routing-Concept/servers/server-resolver.service";
 import { Recipe } from "./recipes/recipe.model";
 import { RecipesComponent } from "./recipes/recipes.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
