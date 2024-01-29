@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -8,9 +9,34 @@ import { NgForm } from '@angular/forms';
 })
 export class FormsHandlingComponent {
 
-  onSubmit(form :NgForm){
-    console.log(form)
-  }
+  @ViewChild('f') signupForm : NgForm;
+  answer :string = ''
+  genders = ['male','female']
+  // onSubmit(form :NgForm){
+  //   console.log(form)
+  // }
   // above return form object!
+
+  suggestUserName(){
+    const suggestName = 'Superuser';
+    // this.signupForm.setValue({
+    //   userdata:{
+    //     username:suggestName,
+    //     email:'',
+    //   },
+    //   secret: 'teacher',
+    //   questionAnswer:'',
+    //   gender: 'male'
+    // })
+    this.signupForm.form.patchValue({
+      userdata:{
+        username:suggestName
+      }
+    });
+  }
+
+  onSubmit(){
+    console.log(this.signupForm)
+  }
 }
  

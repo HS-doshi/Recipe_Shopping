@@ -1,34 +1,58 @@
 <div class="conatiner">
     <div class="row">
         <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-                <div id="user-data">
+            <!-- local reference if #f -->
+            <form (ngSubmit)="onSubmit()" #f="ngForm">
+                <div id="userdata" ngModelGroup="userdata"
+                #userData = "ngModelGroup">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" id="username" class="form-control"
                         ngModel 
-                        name="username">
+                        name="username" required>
                     </div>
-                    <button class="btn btn-default" type="button">Suggest an Username</button>
+                    <button class="btn btn-default" type="button"
+                    (click)="suggestUserName()">Suggest an Username</button>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" 
                         class="form-control"
                         ngModel
-                        name="email">
+                        name="email" required 
+                        email
+                        #email="ngModel">
+                        <span class="help-block" *ngIf="!email.valid && email.touched">Please Enter a valid email!</span>
+                        <!-- ngif control the form feature by angular! -->
                     </div>
                 </div>
+                <p *ngIf="!userData.valid && userData.touched">User data is invalid</p>
                 <div class="form-group">
                     <label for="secret">Secret Question</label>
                     <select class="form-control" id="secret"
-                    ngModel
+                    [ngModel]="'sports'"
                     name="secret">
                         <option value="sports">Your Favourite Sports!</option>
                         <option value="pet">Your First Pet?</option>
                         <option value="teacher">Your First Teacher?</option>
                     </select>
                 </div>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <div class="form-group">
+                    <textarea name="questionAnswer" 
+                    class="form-control"
+                    rows="3" [(ngModel)]="answer"></textarea>
+                </div>
+                    <p>Your reply : {{answer}}</p>
+                    <div class="radio" *ngFor="let gender of genders">
+                       <label>
+                           <input type="radio" name="gender"
+                           (ngModel)="gender" [value]="gender" required="">
+                           {{gender}}                           
+                        </label>                        
+                    </div>
+                <button 
+                class="btn btn-primary" 
+                [disabled]="!f.valid"
+                type="submit">Submit</button>
             </form>
         </div>
     </div>
