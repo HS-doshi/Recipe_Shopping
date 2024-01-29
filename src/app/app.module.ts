@@ -11,7 +11,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { CookpitComponent } from './cookpit/cookpit.component';
 import { ServerElementComponent } from './server-element/server-element.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GameControlComponent } from './game-control/game-control.component';
 import { EvenComponent } from './even/even.component';
 import { OddComponent } from './odd/odd.component';
@@ -36,6 +36,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { UserComponent } from './Observable_Concept/user/user.component';
 import { HomeComponent } from './Observable_Concept/home/home.component';
 import { FormsHandlingComponent } from './forms-handling/forms-handling.component';
+import { ReactiveComponent } from './forms-handling/reactive/reactive.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,14 +64,17 @@ import { FormsHandlingComponent } from './forms-handling/forms-handling.componen
     RecipeEditComponent,
     UserComponent,
     HomeComponent,
-    FormsHandlingComponent
+    FormsHandlingComponent,
+    ReactiveComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService],
   bootstrap: [AppComponent]

@@ -11,7 +11,17 @@ export class FormsHandlingComponent {
 
   @ViewChild('f') signupForm : NgForm;
   answer :string = ''
-  genders = ['male','female']
+  genders = ['male','female'];
+  defaultAns = 'sports'
+
+  user = {
+    username: '',
+    email : '',
+    gender : '',
+    secret : '',
+    questionAnswer : ''
+  }
+  submitted = false;
   // onSubmit(form :NgForm){
   //   console.log(form)
   // }
@@ -36,7 +46,13 @@ export class FormsHandlingComponent {
   }
 
   onSubmit(){
-    console.log(this.signupForm)
+    this.submitted = true;
+    this.user.username = this.signupForm.value.userdata.username;
+    this.user.email = this.signupForm.value.userdata.email;
+    this.user.gender = this.signupForm.value.gender;
+    this.user.secret = this.signupForm.value.secret;
+    this.user.questionAnswer = this.signupForm.value.questionAnswer;
+
+    this.signupForm.reset();
   }
 }
- 
