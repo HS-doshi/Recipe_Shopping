@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+
+      <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="project">Project Name</label>
+          <input type="text" id="project" class="form-control"
+           formControlName="project">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email"
+          class="form-control"  formControlName="email">
+        </div>
+
+        <div class="form-group">
+          <label for="status">Project Status</label>
+          <select
+          class="form-control" id="status"
+          formControlName="status">
+           <!-- we can also use dynamic approach instead of hard code for option -->
+            <option value="stable">Stable</option>
+            <option value="finish">Finished</option>
+            <option value="critical">Critical</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Create Project</button>
+      </form>
+    </div>
+  </div>
+</div>

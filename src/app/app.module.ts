@@ -37,6 +37,8 @@ import { UserComponent } from './Observable_Concept/user/user.component';
 import { HomeComponent } from './Observable_Concept/home/home.component';
 import { FormsHandlingComponent } from './forms-handling/forms-handling.component';
 import { ReactiveComponent } from './forms-handling/reactive/reactive.component';
+import { Assignment3Component } from './forms-handling/assignment3/assignment3.component';
+import { CustomValidator } from './forms-handling/assignment3/custom-validators';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +67,9 @@ import { ReactiveComponent } from './forms-handling/reactive/reactive.component'
     UserComponent,
     HomeComponent,
     FormsHandlingComponent,
-    ReactiveComponent
+    ReactiveComponent,
+    Assignment3Component,
+
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,7 @@ import { ReactiveComponent } from './forms-handling/reactive/reactive.component'
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    
+
   ],
   providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService],
   bootstrap: [AppComponent]
