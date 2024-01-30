@@ -13,7 +13,6 @@ export class ShoppingService {
         new Ingrediant('Cricket', 11),
         new Ingrediant('Football', 10)
     ]
-    constructor() { }
     getIngrediant() {
         // slice method used for only copy of it we can acces through this.
         return this.ingrediant.slice();
@@ -39,7 +38,7 @@ export class ShoppingService {
       this.ingrediant[index] = newIngrent;
       this.ingrediantChnaged.next(this.ingrediant.slice())
     }
-    deleteItem(index : number){
+    deleteIngrediant(index : number){
       this.ingrediant.splice(index,1);
       this.ingrediantChnaged.next(this.ingrediant.slice())
     }

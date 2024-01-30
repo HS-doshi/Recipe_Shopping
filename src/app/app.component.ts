@@ -12,7 +12,11 @@ import { UserService } from './users.service';
 export class AppComponent implements OnInit {
 
   loadedFeature = 'recipe';
-  
+
+  onNavigate(feature:string){
+    this.loadedFeature = feature;
+  }
+
   // onNavigate(feature: string) {
   //   this.loadedFeature = feature;
   // }

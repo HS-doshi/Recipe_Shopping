@@ -33,7 +33,7 @@ export class ShoppingEditComponent implements OnInit , OnDestroy {
             amount : this.editedItem.amount
           })
         }
-      )
+      );
    }
    onSubmit(form : NgForm) {
     const value = form.value;
@@ -52,10 +52,10 @@ export class ShoppingEditComponent implements OnInit , OnDestroy {
     this.editMode = false;
   }
   onDelete(){
-    this.selectedService.deleteItem(this.editedItemIndex);
+    this.selectedService.deleteIngrediant(this.editedItemIndex);
     this.onClear();
   }
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.subscrption.unsubscribe();
   }
 }
