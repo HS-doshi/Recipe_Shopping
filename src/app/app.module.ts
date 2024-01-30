@@ -39,6 +39,7 @@ import { FormsHandlingComponent } from './forms-handling/forms-handling.componen
 import { ReactiveComponent } from './forms-handling/reactive/reactive.component';
 import { Assignment3Component } from './forms-handling/assignment3/assignment3.component';
 import { CustomValidator } from './forms-handling/assignment3/custom-validators';
+import { PipesConceptComponent } from './pipes-concept/pipes-concept.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import { CustomValidator } from './forms-handling/assignment3/custom-validators'
     FormsHandlingComponent,
     ReactiveComponent,
     Assignment3Component,
+    PipesConceptComponent,
 
   ],
   imports: [

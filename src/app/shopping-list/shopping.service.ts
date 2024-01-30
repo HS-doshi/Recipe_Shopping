@@ -1,4 +1,4 @@
-import {  Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Ingrediant } from "../shared/ingrediant.model";
 import { Subject } from "rxjs";
 
@@ -31,7 +31,7 @@ export class ShoppingService {
         //     this.addIngrediant(ingrediant);
         // }
         // ES6 Feature!  - below feature handle multiple objects.
-        this.ingrediant.push(...ingrediants);
+        this.ingrediant.push(...ingrediants)
         this.ingrediantChnaged.next(this.ingrediant.slice());
     }
     updateIngrediant(index:number, newIngrent : Ingrediant ){
