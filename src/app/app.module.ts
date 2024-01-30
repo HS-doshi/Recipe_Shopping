@@ -78,7 +78,6 @@ import { CustomValidator } from './forms-handling/assignment3/custom-validators'
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-
   ],
   providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService],
   bootstrap: [AppComponent]
