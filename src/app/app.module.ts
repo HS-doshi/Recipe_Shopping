@@ -40,6 +40,7 @@ import { ReactiveComponent } from './forms-handling/reactive/reactive.component'
 import { Assignment3Component } from './forms-handling/assignment3/assignment3.component';
 import { CustomValidator } from './forms-handling/assignment3/custom-validators';
 import { PipesConceptComponent } from './pipes-concept/pipes-concept.component';
+import { FilterPipe } from './pipes-concept/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,9 @@ import { PipesConceptComponent } from './pipes-concept/pipes-concept.component';
     ReactiveComponent,
     Assignment3Component,
     PipesConceptComponent,
+    // FilterPipe,
+    RecipeListComponent,
+    FilterPipe,
 
   ],
   imports: [
