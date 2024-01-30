@@ -13,7 +13,7 @@ export class ShoppingEditComponent implements OnInit , OnDestroy {
 
   // @ViewChild('nameInput') nameInputref: ElementRef;
   // @ViewChild('amountInput') amountInputRed: ElementRef;
-  @ViewChild('f') slForm : NgForm
+  @ViewChild('f', {static: false}) slForm : NgForm
   subscrption : Subscription
   editMode = false;
   editedItemIndex : number;
@@ -53,8 +53,7 @@ export class ShoppingEditComponent implements OnInit , OnDestroy {
   }
   onDelete(){
     this.selectedService.deleteItem(this.editedItemIndex);
-      this.onClear();
-
+    this.onClear();
   }
   ngOnDestroy(): void {
     this.subscrption.unsubscribe();

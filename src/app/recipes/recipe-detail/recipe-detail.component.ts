@@ -12,10 +12,12 @@ export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
   id: number;
 
-  constructor(private recipeService: RecipeService,
-    private route: ActivatedRoute, private router : Router) { }
+  constructor(
+    private recipeService: RecipeService,
+    private route: ActivatedRoute,
+    private router : Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     // const id = this.route.snapshot.params['id'];
     // above approach is not feasible & not working as we think.
     this.route.params
@@ -24,7 +26,7 @@ export class RecipeDetailComponent implements OnInit {
           this.id = +params['id'];
           this.recipe = this.recipeService.getRecipe(this.id);
         }
-      )
+      );
   }
   onAddToShopping() {
     this.recipeService.addIngrediantToShopping(this.recipe.ingrediants);
@@ -32,5 +34,9 @@ export class RecipeDetailComponent implements OnInit {
   onEditRecipe(){
     // this.router.navigate(['../', this.id, 'edit'], {relativeTo : this.route})
     this.router.navigate(['edit'],{relativeTo: this.route})
+  }
+  onDeleteRecipe(){
+      this.recipeService.deleteRecipe(this.id);
+      this.router.navigate(['/recipes'])
   }
 }
