@@ -23,7 +23,7 @@ import { AccountComponent } from './account/account.component';
 import { NewAccountComponent } from './new-account/new-account.component';
 import { AcccountService } from './accounts.service';
 import { LogginService } from './logging.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ActiveUsersComponent } from './active-users/active-users.component';
 import { InactiveeUsersComponent } from './inactivee-users/inactivee-users.component';
 import { CounterService } from './counter.service';
@@ -42,6 +42,8 @@ import { CustomValidator } from './forms-handling/assignment3/custom-validators'
 import { PipesConceptComponent } from './pipes-concept/pipes-concept.component';
 import { FilterPipe } from './pipes-concept/filter.pipe';
 import { FirebaseDatabaseComponent } from './firebase-database/firebase-database.component';
+import { firebaseInterceptior } from './firebase-database/firebase-databse.interceptor';
+import { LogginInterceptor } from './firebase-database/firebase-databse/logging.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +88,10 @@ import { FirebaseDatabaseComponent } from './firebase-database/firebase-database
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService],
+  providers: [AcccountService, LogginService, CounterService, RecipeService, ShoppingService,
+    {provide : HTTP_INTERCEPTORS, useClass: LogginInterceptor, multi : true},
+     {provide : HTTP_INTERCEPTORS, useClass: firebaseInterceptior, multi : true}
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
