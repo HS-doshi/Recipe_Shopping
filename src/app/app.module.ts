@@ -76,8 +76,7 @@ import { FirebaseDatabaseComponent } from './firebase-database/firebase-database
     // FilterPipe,
     RecipeListComponent,
     FilterPipe,
-    FirebaseDatabaseComponent,
-
+    FirebaseDatabaseComponent
   ],
   imports: [
     BrowserModule,
