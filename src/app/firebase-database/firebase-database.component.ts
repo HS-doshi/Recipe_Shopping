@@ -1,66 +1,67 @@
 import { HttpClient } from '@angular/common/http';
-import { Component,  OnInit} from '@angular/core';
+import { Component,  OnDestroy,  OnInit} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Post } from './post.model';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { PostService } from './post.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-firebase-database',
   templateUrl: './firebase-database.component.html',
   styleUrl: './firebase-database.component.css'
 })
-export class FirebaseDatabaseComponent  implements OnInit{
+export class FirebaseDatabaseComponent  implements OnInit , OnDestroy{
 
   loadedPosts :Post[] =[];
-  constructor(private http: HttpClient){}
+  isLoading = false;
+  error = null;
+  private errorSub : Subscription;
+
+  constructor(private http: HttpClient,
+    private postService  :PostService){}
 
   ngOnInit() {
-    this.fetchPosts()
+    this.errorSub =  this.postService.error.subscribe(errormessgae=>{
+      this.error = errormessgae;
+    })
+    this.isLoading = true;
+    this.postService.fetchPosts().subscribe(posts=>{
+      this.isLoading = false;
+      this.loadedPosts = posts;
+    },
+    error=>{
+      this.error=error.message;
+    });
   }
   onCreatepost(postData: Post){
     //send http request
     //post.json - is firebase requirement not angular require.
     // - http request manage by observable.
     // console.log(postData)
-    this.http
-    .post<{name : string}>
-    ('https://angular-guide-fb705-default-rtdb.firebaseio.com/posts.json',
-    postData).subscribe((response)=>{
-      console.log(response)
-    })
+    this.postService.createAndStorePost(postData.title, postData.content  , postData.content)
   }
 
   // postData is request body.
   onFetchData(){
     // Send Http request
-    this.fetchPosts()
+    this.isLoading = true;
+    this.postService.fetchPosts().subscribe(posts=>{
+      this.isLoading = false;
+      this.loadedPosts = posts;
+    },error=>{
+      this.isLoading = false;
+      this.error.next(error.message)
+    })
   }
-
-  private fetchPosts(){
-    return this.http
-      .get<{[key:string] : Post}>
-      ('https://angular-guide-fb705-default-rtdb.firebaseio.com/posts.json')
-      .pipe(
-        map((response) => {
-          const postArray: Post[] = [];
-
-          for (const key in response)
-           {
-            if (response.hasOwnProperty(key))
-            {
-              postArray.push({...response[key], id: key });
-            }
-          }
-          return postArray;
-        })
-      )
-        .subscribe((res)=>{
-          console.log(res)
-        });
+  onClearPost(){
+    this.postService.deletePost().subscribe(()=>{
+        this.loadedPosts = [];
+    });
   }
-
-      // (posts)=>{console.log(posts[0].content
-
-
+  handleButton(){
+    this.error = null;
+  }
+  ngOnDestroy()  {
+    this.errorSub.unsubscribe();
+  }
 }

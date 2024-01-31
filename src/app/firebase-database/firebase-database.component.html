@@ -15,12 +15,26 @@
     </form>
       <hr>
       <button type="submit" class="btn btn-primary" (click)="onFetchData()">Fetch Posts</button> |
-      <button type="submit" class="btn btn-danger">Clear Posts</button>
+      <button type="submit" class="btn btn-danger" (click)="onClearPost()">Clear Posts</button>
     </div>
   </div>
+  <hr>
   <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <p>No Post Available!</p>
+    <div class="col-xs-12 col-md-6 col-md-offset-2 col-sm-offset-1">
+      <p
+      *ngIf="loadedPosts.length<1 && !isLoading">No Post Available!</p>
+        <ul class="list-group" *ngIf="loadedPosts.length >=1 && !isLoading">
+          <li class="list-group-item" *ngFor="let post of loadedPosts">
+            <h3>{{post.title}}</h3>
+            <p>{{post.content}}</p>
+          </li>
+        </ul>
+        <h2 *ngIf="isLoading && !error">Loading....</h2>
+        <div class="alert alert-danger" *ngIf="error">
+          <h2>An Error Occur!</h2>
+          <p>{{error}}</p>
+          <button class="btn btn-primary" (click)="handleButton()">Okay</button>
+        </div>
     </div>
   </div>
 </div>
