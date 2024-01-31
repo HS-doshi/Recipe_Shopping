@@ -41,6 +41,7 @@ import { Assignment3Component } from './forms-handling/assignment3/assignment3.c
 import { CustomValidator } from './forms-handling/assignment3/custom-validators';
 import { PipesConceptComponent } from './pipes-concept/pipes-concept.component';
 import { FilterPipe } from './pipes-concept/filter.pipe';
+import { FirebaseDatabaseComponent } from './firebase-database/firebase-database.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +76,7 @@ import { FilterPipe } from './pipes-concept/filter.pipe';
     // FilterPipe,
     RecipeListComponent,
     FilterPipe,
+    FirebaseDatabaseComponent,
 
   ],
   imports: [
