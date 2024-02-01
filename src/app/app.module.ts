@@ -44,6 +44,7 @@ import { FilterPipe } from './pipes-concept/filter.pipe';
 import { FirebaseDatabaseComponent } from './firebase-database/firebase-database.component';
 import { firebaseInterceptior } from './firebase-database/firebase-databse.interceptor';
 import { LogginInterceptor } from './firebase-database/firebase-databse/logging.interceptor';
+import { AuthComponent } from './Auth/auth/auth.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +79,8 @@ import { LogginInterceptor } from './firebase-database/firebase-databse/logging.
     // FilterPipe,
     RecipeListComponent,
     FilterPipe,
-    FirebaseDatabaseComponent
+    FirebaseDatabaseComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

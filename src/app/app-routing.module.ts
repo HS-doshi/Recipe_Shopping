@@ -10,15 +10,16 @@ import { RecipeItemComponent } from "./recipes/recipe-list/recipe-item/recipe-it
 import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
 import { RecipeEditComponent } from "./recipes/recipe-edit/recipe-edit.component";
 import { RecipeResolverService } from "./recipes/recipe-resolver.service";
+import { AuthComponent } from "./Auth/auth/auth.component";
 
 // route is simply array of javascript objects which represent where each object represent a route.
 const appRoutes: Routes = [
     // don't add slash ahead of users or servers.
     // Recipe & Shopping List routing - 24/1 -4:45
-    { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+    { path: '', redirectTo: '/auth', pathMatch: 'full' },
     {
         path: 'recipes', component: RecipesComponent, children: [
-            { path: '', component: RecipeStartComponent },
+            // { path: '', component: RecipeStartComponent },
             { path: 'new', component: RecipeEditComponent },
             { path: ':id', component: RecipeDetailComponent  ,
             resolve: [ RecipeResolverService]},
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
             { path: 'shopping-edit-item', component: ShoppingEditComponent }
         ]
     },
+    {path: 'auth', component: AuthComponent},
 ]
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],
