@@ -45,6 +45,7 @@ import { FirebaseDatabaseComponent } from './firebase-database/firebase-database
 import { firebaseInterceptior } from './firebase-database/firebase-databse.interceptor';
 import { LogginInterceptor } from './firebase-database/firebase-databse/logging.interceptor';
 import { AuthComponent } from './Auth/auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +81,8 @@ import { AuthComponent } from './Auth/auth/auth.component';
     RecipeListComponent,
     FilterPipe,
     FirebaseDatabaseComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
