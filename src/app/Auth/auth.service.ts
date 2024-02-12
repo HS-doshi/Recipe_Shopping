@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { User } from './auth/user.model';
-import { catchError, tap } from 'rxjs/operators';
 
 interface AuthResponseData{
   idToken : string,
@@ -22,12 +21,14 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   signup(email: string, password : string){
-    return  this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCow8sqjaMLI8Ily-086eE0iewlG2BkLf0',
-    {
-    email : email,
-    password: password,
-    returnSecuretoken : true
+    const data = {
+      email : email,
+      password: password,
+      returnSecuretoken : true
     }
+    debugger
+    return this.http.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCow8sqjaMLI8Ily-086eE0iewlG2BkLf0',
+    data
     )
   }
 }

@@ -32,7 +32,8 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              ".htaccess"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -69,13 +70,13 @@
           "configurations": {
             "production": {
               "buildTarget": "Project:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "proxyConfig": "prox.conf.json"
             },
             "development": {
               "buildTarget": "Project:build:development"
             },
             "options": {
-              "proxyConfig": "proxy.config.json"
+              "proxyConfig": "prox.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -101,10 +102,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           }
+        }
+
         }
       }
     }
   }
-}
+
